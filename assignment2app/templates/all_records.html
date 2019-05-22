@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>All Records</title>
+{% endblock %}
+
+    {% block main_body %}
+
+{% if request.get_full_path == "/casinoRecords" %}
+    <h1>All Casinos</h1>
+    <h2><a href="{% url 'casinoRequest' %}">Add a Casino</a></h2>
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Website</th>
+            <th>ID</th>
+            <th>Delete</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in list_casinos %}
+          <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.phone_number }}</td>
+            <td>{{ item.address}}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.state_province }}</td>
+            <td>{{ item.country }}</td>
+            <td>{{ item.website }}</td>
+            <td>{{item.id}}</td>
+            <td><a href="{% url 'delete_casino' item.id%}">Delete</a></td>
+            <td><a href="{% url 'edit_casino' item.id%}">Edit</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+      {% elif request.get_full_path == "/gameRecords" %}
+
+      <h1>All Table Games</h1>
+      <h2><a href="{% url 'gameRequest' %}">Add a Table Game</a></h2>
+      <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Minimum Bet</th>
+              <th>Maximum Bet</th>
+              <th>Floor Location</th>
+              <th>Casino</th>
+              <th>ID</th>
+              <th>Delete</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in list_games %}
+            <tr>
+              <td>{{ item.name }}</td>
+              <td>{{ item.type}}</td>
+              <td>{{ item.min_bet }}</td>
+              <td>{{ item.max_bet }}</td>
+              <td>{{ item.floor }}</td>
+              <td>{% for casino in item.casino.all %}
+                  {{casino}},
+                {% endfor %}</td>
+
+              <td>{{item.id}}</td>
+              <td><a href="{% url 'delete_game' item.id%}">Delete</a></td>
+              <td><a href="{% url 'edit_game' item.id%}">Edit</a></td>
+            </tr>
+
+
+            {% endfor %}
+          </tbody>
+        </table>
+
+
+        {% elif request.get_full_path == "/restaurantRecords" %}
+
+        <h1>All Restaurants</h1>
+        <h2><a href="{% url 'restaurantRequest' %}">Add a Restaurant</a></h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Theme</th>
+                <th>Opening Time</th>
+                <th>Closing Time</th>
+                <th>Casino</th>
+                <th>ID</th>
+                <th>Delete</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in list_restaurants %}
+              <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.theme}}</td>
+                <td>{{ item.opening_time }}</td>
+                <td>{{ item.closing_time }}</td>
+                <td>{% for casino in item.casino.all %}
+                    {{casino}},
+                  {% endfor %}</td>
+                <td>{{item.id}}</td>
+
+                <td><a href="{% url 'delete_restaurant' item.id%}">Delete</a></td>
+                <td><a href="{% url 'edit_restaurant' item.id%}">Edit</a></td>
+              </tr>
+
+
+              {% endfor %}
+            </tbody>
+          </table>
+
+      {% endif %}
+{% endblock %}

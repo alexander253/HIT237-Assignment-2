@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>Post Edit</title>
+{% endblock %}
+
+    {% block main_body %}
+
+    {% if val_errors %}
+    <h2 style="color:red">Validation Errors</h2>
+    <ul>
+      {% for key, value in val_errors.items %}
+      <li>{{ key }} : {{ value }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+
+    <h1 style="color:green">Success</h1>

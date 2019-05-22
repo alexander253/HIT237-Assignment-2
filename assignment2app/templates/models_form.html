@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>Models Form</title>
+{% endblock %}
+
+
+
+{% block main_body %}
+
+{% if request.get_full_path == "/addCasino" %}
+
+    <form class="" action="{% url 'donee'%}" method="post" novalidate>
+      {%csrf_token%}
+      <table>
+        {{my_form.as_table}}
+      </table>
+      <input type="submit" name="" value="Add Casino">
+    </form>
+
+{% elif request.get_full_path == "/addGame" %}
+<form class="" action="{% url 'gameAdded'%}" method="post" novalidate>
+  {%csrf_token%}
+  <table>
+    {{my_form.as_table}}
+  </table>
+  <input type="submit" name="" value="Add Table Game">
+</form>
+
+{% elif request.get_full_path == "/addRestaurant" %}
+<form class="" action="{% url 'restaurantAdded'%}" method="post" novalidate>
+  {%csrf_token%}
+  <table>
+    {{my_form.as_table}}
+  </table>
+  <input type="submit" name="" value="Add Restaurant">
+</form>
+{% endif %}
+
+{% endblock %}

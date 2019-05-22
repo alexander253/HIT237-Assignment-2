@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    {% load static %}
+
+    {% block page_heading %}
+    {% endblock %}
+<link href="{% static 'mysite/css/style.css' %}" rel="stylesheet">
+  </head>
+
+
+<header>
+  <h1>Casino Donations</h1>
+</header>
+
+
+<body>
+
+      <nav>
+            <h2><a href = {% url 'home' %}>Home</a></h2>
+            <h2><a href = {% url 'allCasinos' %}>Casinos</a></h2>
+            <h2><a href = {% url 'allGames' %}>Table Games</a></h2>
+            <h2><a href = {% url 'allRestaurants' %}>Restaurants</a></h2>
+      </nav>
+<div class="block">
+
+      {% block main_body %}
+      {% endblock %}
+</div>
+
+        <footer class="blog-">-- © 2019 Casinos Unlimited  -- </footer>
+</body>

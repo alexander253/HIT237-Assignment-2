@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>Models Form Done</title>
+{% endblock %}
+
+    {% block main_body %}
+
+    {% if val_errors %}
+    <h2 style="color:red">Validation Errors</h2>
+    <ul>
+      {% for key, value in val_errors.items %}
+      <li>{{ key }} : {{ value }}</li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+
+
+{% if request.get_full_path == "/addCasinoDone" %}
+<h1 style="color:green">Success</h1>
+<ul>
+    <li>Name:{{name}} </li>
+    <li>Address: {{address}}</li>
+    <li>Phone Number: {{phone_number}} </li>
+    <li>City: {{city}} </li>
+    <li>State: {{state_province}}</li>
+    <li>Country: {{country}}</li>
+    <li>Website: {{website}}</li>
+</ul>
+
+{% elif request.get_full_path == "/addGameDone" %}
+<h1 style="color:green">Success</h1>
+<ul>
+    <li>Name:{{name}} </li>
+    <li>Type: {{type}}</li>
+    <li>Minimum Bet: {{min_bet}} </li>
+    <li>Maximum Bet: {{max_bet}} </li>
+    <li>Floor: {{floor}}</li>
+    <li>Casino: {{casino}}</li>
+</ul>
+
+{% elif request.get_full_path == "/addRestaurantDone" %}
+<h1 style="color:green">Success</h1>
+<ul>
+    <li>Name:{{name}} </li>
+    <li>Theme: {{type}}</li>
+    <li>Opening Time: {{opening_time}} </li>
+    <li>Closing Time: {{closing_time}} </li>
+    <li>Casino: {{casino}}</li>
+</ul>
+
+{% endif %}
+{% endif %}
+
+  {% endblock %}

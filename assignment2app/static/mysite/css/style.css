@@ -1,0 +1,66 @@
+
+header{
+  box-sizing: border-box;
+  position: static;
+  color: black;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 80px;
+  font-family: sans-serif;
+  background: #FAFAFA;
+  padding: 0px;
+  clear: both;
+}
+
+
+
+
+nav a{
+  padding: 30px;
+  position: relative;
+  top: 0px;
+  float:left;
+  text-align: center;
+  clear:right;
+}
+
+nav a:hover{
+  color: blue;
+  background-color: orange;
+}
+h1{
+  text-align: center;
+}
+
+h1 li{
+  float: left;
+}
+
+.block{
+  margin-top: 120px;
+}
+footer{
+  position: static;
+  text-align: center;
+  margin-top: 100px;
+  clear: both;
+  bottom: 0px;
+}
+
+
+table {
+  margin-top: 10px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 2px solid black;
+  text-align: left;
+  padding: 8px;
+}
+
+th{
+  background-color: grey;
+}

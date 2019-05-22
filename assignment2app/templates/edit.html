@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>Models Form</title>
+{% endblock %}
+
+
+
+{% block main_body %}
+    <form class="" action= "" method="post" novalidate>
+      {%csrf_token%}
+      <table>
+        {{my_form.as_table}}
+      </table>
+      <input type="submit" name="" value="Confirm Edit">
+    </form>
+  
+{% endblock %}

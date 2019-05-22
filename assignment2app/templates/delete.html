@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_heading %}<title>Delete Success</title>
+{% endblock %}
+
+    {% block main_body %}
+
+    <h2 style="color:green">Successfully Deleted</h2>
+
+    <ul>
+      {% for item in delete %}
+      <li>{{ item.name }}: {{item.value}}</li>
+      {% endfor %}
+    </ul>
+
+  {% endblock %}
