@@ -1,1 +1,2 @@
-This is assignment 2 for HIT237
+This is assignment 2 for HIT237 BUILDING INTERACTIVE SOFTWARE.
+Grade pending...
